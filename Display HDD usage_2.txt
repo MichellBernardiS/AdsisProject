@@ -1,0 +1,16 @@
+#!/bin/sh
+df -h
+echo "Use%  Avail  Used  Size  Filesystem"
+df -h | grep -vE '^Filesystem' | awk '{print $5 " " $4 " " $3 " " $2 " " $1}' | while read output
+
+do
+    echo $output
+    used=$(echo $output | awk '{print $1}' | cut -d'%' -f1)
+    partition=$(echo $output | awk '{print $2}')
+    if [ $used -ge 75 ]; then
+       	echo "Running out of space \"$partition ($used%)\" on $(hostname)"
+	mail -s "Alert: almost out of disk space $used%" dio.pramantha@ti.ukdw.ac.id
+    fi
+done
+
+source : https://www.cyberciti.biz/tips/shell-script-to-watch-the-disk-space.html
