@@ -8,7 +8,7 @@ CPU_USAGE_THRESHOLD=800
 PROCESS=$(ps aux r)
 TOPPROCESS=$(ps -eo pid -eo pcpu -eo command | sort -k 2 -r | grep -v PID | head -n 1)
 
-if [ $CPU_USAGE -gt $CPU_USAGE_THRESHOLD] ; then
+if [ $CPU_USAGE -gt $CPU_USAGE_THRESHOLD ] ; then
   kill -9 $(ps -eo pid | sort -k 1 -r | grep -v PID | head -n 1) #original
   kill -9 $(ps -eo pcpu | sort -k 1 -r | grep -v %CPU | head -n 1)
   kill -9 $TOPPROCESS
