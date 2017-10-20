@@ -3,21 +3,21 @@ do
 echo
 echo checking for run-away process ...
 
-penggunaan_CPU=$(uptime | cut -d"," -f4 | cut -d":" -f2 | cut -d" " -f2 | sed -e "s/\.//g")
-penggunaan_CPU_TH=800
+CPU_USAGE=$(uptime | cut -d"," -f4 | cut -d":" -f2 | cut -d" " -f2 | sed -e "s/\.//g")
+CPU_USAGE_THRESHOLD=800
 PROCESS=$(ps aux r)
 TOPPROCESS=$(ps -eo pid -eo pcpu -eo command | sort -k 2 -r | grep -v PID | head -n 1)
 
-if [ $penggunaan_CPU -gt $penggunaan_CPU_TH ] ; then
+if [ $CPU_USAGE -gt $CPU_USAGE_THRESHOLD] ; then
   kill -9 $(ps -eo pid | sort -k 1 -r | grep -v PID | head -n 1) #original
   kill -9 $(ps -eo pcpu | sort -k 1 -r | grep -v %CPU | head -n 1)
   kill -9 $TOPPROCESS
   echo system overloading!
-  echo Top-most process killed $TOPPROCESS
+  echo usage tertinggi $TOPPROCESS
       echo CPU USAGE is at $CPU_LOAD
-    fi
+   fi
     exit 0
     sleep 1;
     done
-
+    
 source :https://unix.stackexchange.com/questions/66786/bash-script-that-automatically-kills-processes-when-cpu-memory-usage-gets-too-hi
