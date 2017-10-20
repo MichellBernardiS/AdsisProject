@@ -20,4 +20,4 @@ if [ $CPU_USAGE -gt $CPU_USAGE_THRESHOLD ] ; then
     sleep 1;
     done
     
-source :https://unix.stackexchange.com/questions/66786/bash-script-that-automatically-kills-processes-when-cpu-memory-usage-gets-too-hi
+source :https://unix.stackexchange.com/
