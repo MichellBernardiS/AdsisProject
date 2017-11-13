@@ -5,18 +5,24 @@
 
 echo -e "$(tput setaf 2)Details about your OS : \nYour kernel name : $(tput setaf 7)\c"
 uname -s 
+
 echo -e "$(tput setaf 2)Operating system : $(tput setaf 7)\c"
 uname -o
+
 echo -e "$(tput setaf 2)Kernel release at : $(tput setaf 7)\c"
-uname -r 
+uname -r
+
 echo -e "$(tput setaf 2)Kernel processor : $(tput setaf 7)\c"
-uname -p 
+uname -p
+
 echo -e "$(tput setaf 2)Hardware platform : $(tput setaf 7)\c"
 uname -i
 echo ""
+
 #print memory usage 
 free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
 echo ""
+
 #print cpu usage
 top -bn1 | grep load | awk '{printf "CPU Load: %.2f\n", $(NF-2)}'
 echo "" 
