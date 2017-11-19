@@ -1,6 +1,7 @@
 #!/bin/sh
 # please using source command like source percobaan instead of sh percobaan or ./percobaan
 # we got idea from https://github.com/atarallo/TECMINT_MONITOR
+#......... 
 
 info ()
 {
@@ -18,6 +19,7 @@ info ()
         uname -i
         echo ""
 }
+
 
 memory ()
 {
@@ -75,6 +77,7 @@ do
         echo -e "4. Monitoring Last Typed Command"
         echo -e "5. Exit"
         echo -e "Please choose one of them (1-5): \c"
+        
 read input
 
 if [ $input -eq 1 ]; then
