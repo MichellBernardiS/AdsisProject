@@ -1,8 +1,6 @@
 #!/bin/sh
 # please using source command like source percobaan instead of sh percobaan or ./percobaan
 # we got idea from https://github.com/atarallo/TECMINT_MONITOR
-#......... 
-
 info ()
 {
         echo ""
@@ -20,7 +18,6 @@ info ()
         echo ""
 }
 
-
 memory ()
 {
         echo ""
@@ -34,7 +31,6 @@ memory ()
         echo ""
         echo ""
 }
-
 disk ()
 {
         echo ""
@@ -53,7 +49,6 @@ done
         #source : https://www.cyberciti.biz/tips/shell-script-to-watch-the-disk-space.html
         echo ""
 }
-
 historyc ()
 {
         echo ""
@@ -79,7 +74,6 @@ do
         echo -e "Please choose one of them (1-5): \c"
         
 read input
-
 if [ $input -eq 1 ]; then
         info ;
 elif [ $input -eq 2 ]; then
